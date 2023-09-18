@@ -20,6 +20,7 @@ interface AuthenticatedUser {
   deleteUser: () => void;
   // recenty verified user credentials
   verified: boolean
+  setVerified: (val: boolean) => void;
   redirectTo: string
   setRedirectTo: (location: string) => void;
 }
@@ -53,6 +54,7 @@ const AuthContent = createContext<AuthenticatedUser>({
   setUser: () => { },
   deleteUser: () => { },
   verified: false,
+  setVerified: () => { },
   redirectTo: '/',
   setRedirectTo: () => { },
 
@@ -131,7 +133,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
 
   // Provide the authentication data and functions to the children components
   return (
-    <AuthContent.Provider value={{ user, updateUser, csrfToken, setUser, deleteUser, verified, redirectTo, setRedirectTo }}>
+    <AuthContent.Provider value={{ user, updateUser, csrfToken, setUser, deleteUser, verified, setVerified, redirectTo, setRedirectTo }}>
       {children}
     </AuthContent.Provider>
   );

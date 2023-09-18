@@ -3,7 +3,6 @@ import SimpleTable from '@/components/SimpleTable';
 import { useAuth } from '@/contexts/AuthContext';
 import useListSources from '@/hooks/apis/useListSources';
 import useAxios from '@/hooks/useAxios'
-import useRolePermissions from '@/hooks/useRolePermissions';
 import { UserInterface } from '@/interfaces/UserInterface';
 import { publish } from '@/utils/events';
 import { Icon } from '@iconify/react/dist/iconify.js';
@@ -58,7 +57,7 @@ const Index = (props: Props) => {
 
         setLoggedInUser(user);
         setVerified(false)
-        
+
         // Redirect the user to the home page
         navigate('/admin');
 
@@ -68,7 +67,7 @@ const Index = (props: Props) => {
   }, [dataLoggedIn, loggingIn]);
 
 
-  const {permissions: list_sources} = useListSources()
+  const { rolePermissions: list_sources } = useListSources()
 
   return (
     <div className="row">
@@ -89,20 +88,25 @@ const Index = (props: Props) => {
                   <div className="col-md-6">
                     <h3>Main Actions</h3>
 
-                    <div className='d-flex gap-1'>
-
-                      <button type="button" className="btn btn-info text-white" data-bs-toggle="modal" data-bs-target="#UpdateUserInfo">
-                        <Icon fontSize={26} icon="streamline:interface-user-edit-actions-close-edit-geometric-human-pencil-person-single-up-user-write" />
-                        <span className='ms-2'>Edit User</span>
-                      </button>
-                      <button type="button" className="btn btn-info text-white btn-lg" data-bs-toggle="modal" data-bs-target="#update_password">
-                        <Icon fontSize={26} icon={`ooui:edit-lock`} />
-                        <span className='ms-2'>Change Password</span>
-                      </button>
-                      <button onClick={loginUser} className="btn btn-outline-primary btn-lg">
-                        <Icon fontSize={26} icon={`uiw:login`} />
-                        <span className='ms-2'>Login</span>
-                      </button>
+                    <div className='row gap-2 gap-md-0'>
+                      <div className='col-12 col-md-4 px-1'>
+                        <button type="button" className="btn btn-info text-white w-100 text-start" data-bs-toggle="modal" data-bs-target="#UpdateUserInfo">
+                          <Icon fontSize={26} icon="streamline:interface-user-edit-actions-close-edit-geometric-human-pencil-person-single-up-user-write" />
+                          <span className='ms-2'>Edit User</span>
+                        </button>
+                      </div>
+                      <div className='col-12 col-md-4 px-1'>
+                        <button type="button" className="btn btn-info text-white w-100 text-start" data-bs-toggle="modal" data-bs-target="#update_password">
+                          <Icon fontSize={26} icon={`ooui:edit-lock`} />
+                          <span className='ms-2'>Change Password</span>
+                        </button>
+                      </div>
+                      <div className='col-12 col-md-4 px-1'>
+                        <button onClick={loginUser} className="btn btn-outline-primary w-100 text-start">
+                          <Icon fontSize={26} icon={`uiw:login`} />
+                          <span className='ms-2'>Login</span>
+                        </button>
+                      </div>
                     </div>
                   </div>
 
