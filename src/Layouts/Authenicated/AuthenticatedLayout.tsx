@@ -13,12 +13,12 @@ import { useRolePermissionsContext } from '@/contexts/RolePermissionsContext';
 import Error404 from '@/Pages/ErrorPages/Error404';
 import { environment } from '@/utils/helpers';
 import SideNav, { toggleSidebar } from '@/Layouts/Authenicated/SideNav/Index';
-import { HttpVerbsTypes } from '@/interfaces/UncategorizedInterfaces';
+import { HttpVerbsType } from '@/interfaces/UncategorizedInterfaces';
 
 interface Props {
     uri: string
     permission?: string | null
-    method?: HttpVerbsTypes
+    method?: HttpVerbsType
     Component: React.ComponentType
 }
 
