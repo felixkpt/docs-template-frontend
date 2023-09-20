@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { publish, subscribe, unsubscribe } from '@/utils/events';
 import RenderAsyncSelect from './RenderAsyncSelect';
-import { CollectionItemsInterface, DataInterface, ListSourceInterface, ModalSizeType } from '@/interfaces/UncategorizedInterfaces';
+import { DataInterface, ListSourceInterface, ModalSizeType } from '@/interfaces/UncategorizedInterfaces';
 import Str from '@/utils/Str';
 interface ModalProps {
     modelDetails?: any;

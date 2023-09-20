@@ -21,7 +21,7 @@ const index = [
     },
     {
         path: 'detail/:id/edit',
-        element: <AuthenticatedLayout uri={relativeUri + 'detail/:id/edit'} permission="" Component={CreateOrUpdate} />,
+        element: <AuthenticatedLayout uri={relativeUri + 'detail/:id'} method="put" permission="" Component={CreateOrUpdate} />,
     },
 
 ]

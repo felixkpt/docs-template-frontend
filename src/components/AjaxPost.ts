@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react'
 
 const AjaxPost = () => {
 
-    const { data, post, put, destroy, patch, setValidationElementId } = useAxios();
+    const { data, post, put, destroy, patch } = useAxios();
 
     const [form, setForm] = useState();
 
@@ -23,7 +23,7 @@ const AjaxPost = () => {
             if (Array.isArray(moreData[key])) {
                 const files = moreData[key];
 
-                files.forEach((file) => {
+                files.forEach((file:any) => {
                     formData.append(`${key}[]`, file || null);
                 });
 

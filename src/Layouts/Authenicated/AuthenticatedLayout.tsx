@@ -13,14 +13,16 @@ import { useRolePermissionsContext } from '@/contexts/RolePermissionsContext';
 import Error404 from '@/Pages/ErrorPages/Error404';
 import { environment } from '@/utils/helpers';
 import SideNav, { toggleSidebar } from '@/Layouts/Authenicated/SideNav/Index';
+import { HttpVerbsTypes } from '@/interfaces/UncategorizedInterfaces';
 
 interface Props {
     uri: string
     permission?: string | null
+    method?: HttpVerbsTypes
     Component: React.ComponentType
 }
 
-const AuthenticatedLayout = ({ uri, permission, Component }: Props) => {
+const AuthenticatedLayout = ({ uri, permission, method, Component }: Props) => {
 
     const [reloadKey, setReloadKey] = useState<number>(0);
 
@@ -46,7 +48,7 @@ const AuthenticatedLayout = ({ uri, permission, Component }: Props) => {
         if (verified === true && testPermission && loadingRoutePermissions === false) {
 
             if (!allowedRoutes.includes(testPermission)) {
-                const isAllowed = checkPermission(testPermission, 'get');
+                const isAllowed = checkPermission(testPermission, method || 'get');
                 setIsAllowed(isAllowed);
             }
 
