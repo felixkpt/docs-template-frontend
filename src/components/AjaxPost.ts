@@ -1,4 +1,5 @@
 import useAxios from '@/hooks/useAxios';
+import { HttpVerbsTypes } from '@/interfaces/UncategorizedInterfaces';
 import { publish, subscribe, unsubscribe } from '@/utils/events';
 import { baseURL } from '@/utils/helpers';
 import { useEffect, useState } from 'react'
@@ -23,7 +24,7 @@ const AjaxPost = () => {
             if (Array.isArray(moreData[key])) {
                 const files = moreData[key];
 
-                files.forEach((file:any) => {
+                files.forEach((file: any) => {
                     formData.append(`${key}[]`, file || null);
                 });
 
@@ -38,7 +39,7 @@ const AjaxPost = () => {
         let url = rawForm?.getAttribute('action-url') || ''; // Get the baseUri from the event detail
         url = baseURL(url);
 
-        const method = (rawForm?.querySelector('input[name="_method"]')?.value || 'post').toLowerCase(); // Get the form's HTTP method
+        const method: HttpVerbsTypes = (rawForm?.querySelector('input[name="_method"]')?.value || 'post').toLowerCase(); // Get the form's HTTP method
         const button = rawForm?.querySelector('button[type="submit"]')
 
         if (button) {

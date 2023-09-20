@@ -104,4 +104,4 @@ export interface DocsInterface {
 
 export type ModalSizeType = 'modal-sm' | 'modal-lg' | 'modal-xl';
 
-export type HttpVerbsTypes = 'POST' | 'PUT' | 'PATCH' | 'post' | 'put' | 'patch'
+export type HttpVerbsTypes = 'POST' | 'post' | 'PUT' | 'put' | 'PATCH' | 'patch' | 'DELETE' | 'delete'
